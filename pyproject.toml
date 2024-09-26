@@ -1,6 +1,6 @@
 [project]
 name = "hnh"
-version = "0.1.0"
+version = "0.2.0"
 description = "Default template for PDM package"
 authors = [
     {name = "HaramSs", email = "haram8274@gmail.com"},
@@ -8,6 +8,10 @@ authors = [
 dependencies = [
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.30.6",
+    "transformers>=4.45.0",
+    "torch>=2.4.1",
+    "torchvision>=0.19.1",
+    "python-multipart>=0.0.10",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
@@ -15,4 +19,12 @@ license = {text = "MIT"}
 
 
 [tool.pdm]
-distribution = false
+distribution = true
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.3.3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "src"
